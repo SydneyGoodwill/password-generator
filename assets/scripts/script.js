@@ -22,7 +22,7 @@ function generatePassword() {
     const wantUppercase = confirm("Would you like to use uppercase letters in your password?");
     const wantLowercase = confirm("Would you like to use lowercase letters in your password?");
 
-    var password = "";
+    let password = "";
 
     while (password.length < parseInt(passwordLength)) {
 
@@ -32,18 +32,21 @@ function generatePassword() {
           return password;
         }
       }
+
       if (wantNumbers) {
         password += getRandomChar("0123456789");
         if (password.length === passwordLength) {
           return password;
         }
       }
+
       if (wantUppercase) {
        password += getRandomChar("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         if (password.length === passwordLength) {
           return password;
        }
       }
+
       if (wantLowercase) {
         password += getRandomChar("abcdefghijklmnopqrstuvwxyz");
         if (password.length === passwordLength) {
@@ -53,6 +56,8 @@ function generatePassword() {
     }
   return password;
 }
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -63,3 +68,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
